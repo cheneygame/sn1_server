@@ -21,6 +21,7 @@ skynet.start(function()
 		maxclient = max_client,
 		nodelay = true,
 	})
+	--will trigger room_module/main.lua, more detail in config.lua
 	local room = skynet.uniqueservice(true,"room_module",watchdog) --room/main.lua
 	local player = skynet.uniqueservice(true,"player_module",watchdog) --player/main.lua
 	skynet.error("Watchdog listen on", 8888)

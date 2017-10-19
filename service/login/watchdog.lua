@@ -66,7 +66,7 @@ function CMD.broad_room_info()
 	local rooms_info = skynet.call(module,"lua","mgr","get_rooms_info")
 	local info = {rooms = rooms_info}
 	--dump(info)
-	--some bug about socket,timeout to deal temp
+	--can also not to use timeout,
 	skynet.timeout(0,function()
                 local str = send_request("room_info",info,CMD_ROOMINFO)		
 		skynet.call(skynet.self(),"lua","broadcast","send_request",str)
@@ -94,7 +94,7 @@ function CMD.sendtomates(account,cmd,...)
 		if va ~= account then
 			skynet.call(v,"lua",cmd,...)
 		end
-        end
+    end
 
 end
 
