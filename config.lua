@@ -15,6 +15,7 @@ snax = root.."examples/?.lua;"..root.."test/?.lua"
 cpath = root.."cservice/?.so"
 -- daemon = "./skynet.pid"
 
+
 --our path
 luaservice = "./service/?.lua;./service/?/main.lua;./service/login/?.lua;"..luaservice
 lua_path = "./lualib/?.lua;./service/?/?.lua;./service/proto/?.lua;"..lua_path
