@@ -47,7 +47,7 @@ end
 function SOCKET.data(fd, msg)
 end
 
-function CMD.start(conf)
+function CMD.start(conf) --start tcp connnect,  conf is a table which from main.lua
 	skynet.call(gate, "lua", "open" , conf)
 end
 
@@ -113,5 +113,5 @@ skynet.start(function()
 	host = sproto.new(proto.c2s):host "package"
         send_request = host:attach(sproto.new(proto.s2c))
 
-	gate = skynet.newservice("gate")
+	gate = skynet.newservice("gate") --call gate.lua,init gate service
 end)

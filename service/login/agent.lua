@@ -188,13 +188,13 @@ skynet.register_protocol {
 	end,
 	dispatch = function (_, _, type, ...)--params form unpack
 		if type == "REQUEST" then
-			local ok, result  = pcall(request, ...)
+			local ok, result  = pcall(request, ...) --call local function request(name, args, response)
 			print("ok,result",ok,result)
 			if ok then
-				if result then
+				if result then  --request finish ,do response package
 					send_package(result)
 				end
-				request_finish(...)
+				request_finish(...)  --what request func finished to do
 			else
 				skynet.error(result)
 			end

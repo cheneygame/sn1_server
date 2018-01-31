@@ -5,7 +5,7 @@ local max_client = 64
 
 skynet.start(function()
 	skynet.error("Server start")
-	local db = skynet.uniqueservice(true,"accountDB")
+	local db = skynet.uniqueservice(true,"accountDB")  -- register global single service
         skynet.call(db,"lua","init")
 	print("mongodb",db)
 
@@ -22,6 +22,7 @@ skynet.start(function()
 		nodelay = true,
 	})
 	--will trigger room_module/main.lua, more detail in config.lua
+	-- register global single service
 	local room = skynet.uniqueservice(true,"room_module",watchdog) --room/main.lua
 	local player = skynet.uniqueservice(true,"player_module",watchdog) --player/main.lua
 	skynet.error("Watchdog listen on", 8888)
